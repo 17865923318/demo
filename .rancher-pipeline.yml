@@ -1,0 +1,18 @@
+stages:
+- name: build
+  steps:
+  - runScriptConfig:
+      image: registry.cn-hangzhou.aliyuncs.com/acs/maven
+      shellScript: |-
+        cd ./demo/demo
+        mvn clean package -Dmaven.test.skip=true
+- name: publish
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ../demo/demo/Dockerfile
+      buildContext: .
+      tag: localhost:8092/demo:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
+notification: {}
