@@ -9,7 +9,7 @@ stages:
 - name: publish
   steps:
   - publishImageConfig:
-      dockerfilePath: ./demo/Dockerfile
+      dockerfilePath: ./Dockerfile
       buildContext: .
       tag: localhost:5000/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
