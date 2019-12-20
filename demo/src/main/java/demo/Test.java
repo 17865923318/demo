@@ -8,6 +8,6 @@ public class Test {
 	@ResponseBody
 	@RequestMapping("/test")
 	public String copyProductInfo() {
-		return "1234567890888";
+		return "1234567890888999";
 	}
 }
