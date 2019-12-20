@@ -4,12 +4,12 @@ stages:
   - runScriptConfig:
       image: registry.cn-hangzhou.aliyuncs.com/acs/maven
       shellScript: |-
-        cd ./demo/demo
+        cd ./demo
         mvn clean package -Dmaven.test.skip=true
 - name: publish
   steps:
   - publishImageConfig:
-      dockerfilePath: ./demo/demo/Dockerfile
+      dockerfilePath: ./demo/Dockerfile
       buildContext: .
       tag: localhost:5000/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
