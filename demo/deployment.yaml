@@ -34,7 +34,7 @@ spec:
         workload.user.cattle.io/workloadselector: deployment-default-demo
     spec:
       containers:
-      - image: 17865923318/demo:50
+      - image: 17865923318/demo:${CICD_EXECUTION_SEQUENCE}
         imagePullPolicy: Always
         name: demo
         ports:
