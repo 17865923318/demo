@@ -10,7 +10,8 @@ stages:
   steps:
   - publishImageConfig:
       dockerfilePath: ./demo/Dockerfile
-      tag: local/demo:${CICD_EXECUTION_SEQUENCE}
+      buildContext: .
+      tag: 17865923318/demo:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
 timeout: 60
